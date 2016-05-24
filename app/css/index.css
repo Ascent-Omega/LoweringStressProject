@@ -1,0 +1,7 @@
+.starter-template h1 {
+	margin-bottom: 30px;
+}
+form label.input-label input {
+	margin-right: 50px;
+	font-weight: normal;
+}
