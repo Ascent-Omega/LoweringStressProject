@@ -9,7 +9,7 @@ because you'll be referencing it in your browser.
 When you install Node.js it comes with a package manager called NPM. NPM makes it easy to add in useful code that others have written and published. https://docs.npmjs.com/getting-started/installing-node The video on this page
 uses a mac/unix set-up, but they also have ways to install it for windows if you read the description below the video.
 ####4. Installing Bower
-Bower is a great way to track dependencies in your project. For example, one dependency for us is the 'bootstrap' package. What's cool with Bower is that once you clone the repository locally, all you have to do is run one command line argument and all outside dependencies will download in the repository.
+Bower is a great way to track dependencies in your project. For example, one dependency for us is the 'bootstrap' package. What's cool with Bower is that once you clone the repository locally, all you have to do is run one command line argument and all outside dependencies will download in the repository. Bower's download instructions can be found here: http://bower.io/#install-bower
 ####5. Run Bower to Download Missing Dependencies
 Once you have the repository cloned and npm and bower installed, go into your command line prompt and navigate to the repository directory. Once you're in there, run the command:
 ```bash
