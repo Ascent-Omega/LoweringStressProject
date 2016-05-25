@@ -5,3 +5,9 @@ form label.input-label input {
 	margin-right: 50px;
 	font-weight: normal;
 }
+#map {
+	 min-height: 400px;
+	 height: 100%;
+	 width: 50%;
+	 margin: auto;
+}
