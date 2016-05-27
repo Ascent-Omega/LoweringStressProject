@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hotels</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    <h1>Database UI</h1>
+    <form method="POST" id="hotelForm" name="hotelForm">
+        <fieldset>
+            <legend>Hotel</legend>
+            <p>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </p>
+            <p>
+                <label for="room_price">Room Price per Night</label>
+                <input type="text" id="room_price" name="room_price">
+            </p>
+            <p>
+                <input type="submit" class="buttons" id="submitBtn" name="submitBtn">
+                <input type="hidden" id="insert" name="insert">
+            </p>
+        </fieldset>
+    </form>
+    <br>
+<p id="status" style="color:red;">{{status}}</p>
+    <br>
+    <table id="table">
+  <thead id="thead">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Room Price</th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+  </tbody>
+</table>
+    <script src="/hotelScript.js"></script>
+    </body>
+</html>

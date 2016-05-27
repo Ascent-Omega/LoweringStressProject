@@ -12,12 +12,12 @@
     <title>Lowering Stress in the World</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/index.css" rel="stylesheet">
+    <link href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../public/css/index.css" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="../public/starter-template.css" rel="stylesheet">
 
   </head>
 
@@ -47,7 +47,7 @@
     <div class="container">
       <div class="starter-template">
         <h1>Where would you like to travel?</h1>
-		<form onsubmit="getData(); return false;" action="POST">
+		<form onsubmit="getData(); return false;" action="Get">
 			<label class="input-label" for="beginning_destination">Start: <input type="text" id="beginning_destination" name="beginning_destination" value=""></label>
 			<label class="input-label" for="ending_destination">End: <input type="text" id="ending_destination" name="ending_destination" value=""></label>
 			<input type="submit" value="Submit">
@@ -60,13 +60,13 @@
     </div><!-- /.container -->
 
 
-    <!-- Bootstrap core JavaScript
+     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
+	<script type="text/javascript" src="../public/js/form.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0Iz2-uDQLCltYL5zcJYtUsLaSf24wuE" async defer></script>
     <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-    <script src="..//bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
