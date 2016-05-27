@@ -67,15 +67,22 @@ if(err){
 app.get('/',function(req,res,next){
     //load the homepage
 	//var context = {};
-    res.sendFile(path.join(__dirname + "/views/layouts/index.html")); 
+    //res.render('index', context); 
+	res.sendFile(path.join(__dirname + '/views/public/app/index.html'));
+});
+/*
+app.get('/index',function(req,res,next){
+    //load the index
+	var context = {};
+    res.render('index', context); 
 });
 
 app.post('/',function(req,res,next){
     //load the homepage
 	//var context = {};
-    res.sendFile(path.join(__dirname + "/views/layouts/index.html")); 
+    res.redirect.get('/'); 
 });
-
+*/
 app.get('/select', function(req, res, next) {
   var context = {};
  
@@ -140,6 +147,29 @@ app.get('/selectNights', function(req, res, next) {
     var tableInfo3 = JSON.stringify(rows);
     res.setHeader('Content-Type', 'application/json');
     res.end(tableInfo3);
+	
+	
+	
+
+//	for (var i = 0; i < rows.length; i++) {
+//		console.log(rows[i].name) + ", " +console.log(rows[i].room_price_per_night);
+//	};
+
+
+  });
+});
+
+app.get('/selectGas', function(req, res, next) {
+  // Used to retrieve rows that are sent back to client for display
+  mysql.pool.query('SELECT station_name,gas_type,price FROM gas', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+	
+    var tableInfo = JSON.stringify(rows);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(tableInfo);
 	
 	
 	

@@ -2,12 +2,15 @@ var url = "http://52.11.246.123:3000";
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
   });
+  
 var selectHotel = document.getElementById("selectHotel");
 var selectVehicle = document.getElementById("selectVehicle");
 var selectNights = document.getElementById("selectNights");
+var selectGas = document.getElementById("selectGas");
 var allowH = true;
 var allowN = true;
 var allowV = true;
+var allowG = true;
 
 
 
@@ -50,6 +53,21 @@ function selectVOption(input){
     vehicle.textContent = opt;
     vehicle.value = input[i].miles_per_gallon;
     selectVehicle.appendChild(vehicle);
+	
+	
+	}
+};
+
+function selectGOption(input){
+	
+
+	for(var i = 0; i < input.length; i++) {
+    var opt = input[i].station_name + "-" +
+    					input[i].gas_type + input[i].price;
+    var gas = document.createElement("option");
+    gas.textContent = opt;
+    gas.value = input[i].price;
+    selectGas.appendChild(gas);
 	
 	
 	}
@@ -162,6 +180,47 @@ if(allowV){
 		console.log(response);
 		//alert(response.name[0]);
 		selectVOption(response);
+		//document.getElementById('status').innerHTML = req.responseText;
+
+	}else {
+			// If a server error was received, post the response text to the log
+			console.log("Error in network request: " + req.statusText);
+	}
+	});
+	
+	req.setRequestHeader("Content-Type", "application/json");
+    req.send(JSON.stringify(payload));
+	//req.send();
+}
+
+event.stopPropagation();
+});
+
+selectGas.addEventListener('click', function(event){
+	//event.preventDefault();
+if(allowG){
+	allowG = false;
+	var req = new XMLHttpRequest();
+
+	var reqString = url + "/selectGas";
+
+	req.open('GET', reqString, true);
+	
+	var payload = {};
+
+	req.addEventListener('load',function() {
+	if (req.status >= 200 && req.status < 400) {
+		var response = JSON.parse(req.responseText);
+		
+		//document.getElementById('status').textContent = response;
+		
+		payload = response;
+		
+
+		
+		console.log(response);
+		//alert(response.name[0]);
+		selectGOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
 
 	}else {
