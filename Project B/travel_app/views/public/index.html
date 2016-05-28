@@ -18,6 +18,9 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
+    
+    <!-- QUnit style for testing -->
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.23.1.css">
 
   </head>
 
@@ -66,15 +69,21 @@
 	  <div id="map"></div>
     </div><!-- /.container -->
 
-
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/form.js"></script>
-	<script type="text/javascript" src="/js/move.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0Iz2-uDQLCltYL5zcJYtUsLaSf24wuE" async defer></script>
+  	<script type="text/javascript" src="/js/form.js"></script>
+  	<script type="text/javascript" src="/js/move.js"></script>
+  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0Iz2-uDQLCltYL5zcJYtUsLaSf24wuE" async defer></script>
     <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- QUnit testing -->
+   <script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
+   <script src="js/tests.js"></script>
+    
   </body>
 </html>
