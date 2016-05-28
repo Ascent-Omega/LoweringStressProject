@@ -1,18 +1,133 @@
 var url = "http://52.11.246.123:3000";
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
+	
+	populateHotel();
+	populateNights();
+	populateVehicle();
+	populateGas();
+	testNumericalQuery();
   });
   
 var selectHotel = document.getElementById("selectHotel");
 var selectVehicle = document.getElementById("selectVehicle");
 var selectNights = document.getElementById("selectNights");
 var selectGas = document.getElementById("selectGas");
+var calculateBtn = document.getElementById("calc");
+var travelDistance = document.getElementById("distanceO").value;
 var allowH = true;
 var allowN = true;
 var allowV = true;
 var allowG = true;
 
+// verifies whether the options generated the proper values
+function executeHTests(){
+	
+	console.log("Hotel Tests:");
+	testHSelectOption(1, 500);
+	testHSelectOption(2, 200);
+	testHSelectOption(3, 700);
+	testHSelectOption(4, 300);
+	testHSelectOption(5, 100);
+	testHSelectOption(6, 400);
+	testHSelectOption(7, 70);
+	testHSelectOption(8, 900);
+	testHSelectOption(9, 250);
+	testHSelectOption(10, 80);
+	console.log("Should fail:")
+	testHSelectOption(10, 800);
 
+
+}
+
+function testHSelectOption(optionNumber, expected){
+		
+	//var selectHotel = document.getElementById("selectHotel");
+
+	//console.log("childs are: " + selectHotel.childnodes.length);
+	
+	// if element is not found
+	if (typeof selectHotel[optionNumber] == 'undefined')
+	{ 			
+		console.log("Element not found");
+		return;
+	}
+	
+	/*
+	var x = selectHotel.getElementsByTagName("option").length;
+	console.log("total options: " + x);
+	*/
+	
+	var val = selectHotel[optionNumber].value;
+
+	//console.log("value is: " + val); 
+	
+	if(val == expected)
+	{
+		console.log("Option " + optionNumber +" test passed!");
+	}
+	else
+	{
+		console.log("Option " + optionNumber + " test failed: " + val + " is not " + expected);
+	}
+	//console.log(selectHotel[0].value);
+};
+
+// verifies whether the options generated the proper values
+function executeVTests(){
+	
+	console.log("Vehicle Tests:");
+	testVSelectOption(1,"Acura-ILX-2014",33);
+	testVSelectOption(2,"Chrysler-300C-2011",34);
+	testVSelectOption(3,"Ford-Fusion-2016",37);
+	testVSelectOption(4,"BMW-640 Grand Coupe-2017",29);
+	testVSelectOption(5,"Cadillac-STS-V-2008",19);
+	testVSelectOption(6,"Cadillac-CT6-2016",31);
+	testVSelectOption(7,"Dodge-Ram 1500-2010",20);
+	testVSelectOption(8,"Buick-LaCrosse-2009",25);
+	testVSelectOption(9,"Ford-F-150-2016",23);
+	testVSelectOption(10,"Chrysler-200-2015",34);
+
+	console.log("Should fail:")
+	testVSelectOption(10,"Chrysler-200-2014",34);
+	testVSelectOption(10,"Chrysler-200-2015",33);
+
+
+}
+
+function testVSelectOption(optionNumber, optionText, expectedValue){
+		
+	// if not found then end function
+	if (typeof selectVehicle[optionNumber] == 'undefined')
+	{ 			
+		console.log("Element not found");
+		return;
+	}
+	
+	var opText = selectVehicle[optionNumber].textContent;
+	
+	var val = selectVehicle[optionNumber].value;
+
+	//console.log("value is: " + val); 
+	
+	if((val == expectedValue) && (opText == optionText))
+	{
+		console.log("Option " + optionNumber +" test passed!");
+		return;
+	}
+	
+	if(val != expectedValue)
+	{
+		console.log("Option " + optionNumber + " test failed: " + val + " is not " + expectedValue);
+	}
+	
+	if((opText != optionText))
+	{
+		console.log("Option " + optionNumber + " test failed: " + opText + " is not " + optionText);
+	}
+	
+	//console.log(selectHotel[0].value);
+};	
 
 function selectHOption(input){
 	
@@ -63,7 +178,7 @@ function selectGOption(input){
 
 	for(var i = 0; i < input.length; i++) {
     var opt = input[i].station_name + "-" +
-    					input[i].gas_type + input[i].price;
+    					input[i].gas_type + "- $" + input[i].price;
     var gas = document.createElement("option");
     gas.textContent = opt;
     gas.value = input[i].price;
@@ -73,8 +188,8 @@ function selectGOption(input){
 	}
 };
 
-selectHotel.addEventListener('click', function(event){
-
+//selectHotel.addEventListener('click', function(event){
+function populateHotel(){
 if(allowH){
 	allowH = false;
 	var req = new XMLHttpRequest();
@@ -99,7 +214,7 @@ if(allowH){
 		//alert(response.name[0]);
 		selectHOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
-
+		// uncomment to test //executeHTests();
 	}else {
 			// If a server error was received, post the response text to the log
 			console.log("Error in network request: " + req.statusText);
@@ -110,12 +225,13 @@ if(allowH){
     req.send(JSON.stringify(payload));
 	//req.send();
 	//event.stopPropagation();
-}
+ }
 //event.preventDefault();
-});
+};//);
 
-selectNights.addEventListener('click', function(event){
+//selectNights.addEventListener('click', function(event){
 	//event.preventDefault();
+function populateNights(){
 
 if(allowN){
 	allowN = false;
@@ -151,12 +267,14 @@ if(allowN){
 	req.setRequestHeader("Content-Type", "application/json");
     req.send(JSON.stringify(payload));
 	//req.send();
-}	event.stopPropagation();
+}	//event.stopPropagation();
 
-});
+};//);
 
-selectVehicle.addEventListener('click', function(event){
+//selectVehicle.addEventListener('click', function(event){
 	//event.preventDefault();
+function populateVehicle(){
+
 if(allowV){
 	allowV = false;
 	var req = new XMLHttpRequest();
@@ -181,7 +299,7 @@ if(allowV){
 		//alert(response.name[0]);
 		selectVOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
-
+		// uncomment to test //executeVTests();
 	}else {
 			// If a server error was received, post the response text to the log
 			console.log("Error in network request: " + req.statusText);
@@ -193,11 +311,13 @@ if(allowV){
 	//req.send();
 }
 
-event.stopPropagation();
-});
+//event.stopPropagation();
+};//);
 
-selectGas.addEventListener('click', function(event){
+//selectGas.addEventListener('click', function(event){
 	//event.preventDefault();
+function populateGas(){
+
 if(allowG){
 	allowG = false;
 	var req = new XMLHttpRequest();
@@ -234,7 +354,36 @@ if(allowG){
 	//req.send();
 }
 
-event.stopPropagation();
+//event.stopPropagation();
+};//);
+
+function testNumericalQuery(){
+	
+	travelDistance = Number(travelDistance);
+	
+	if(isNaN(travelDistance)){
+		console.log("Query is not a number - " + travelDistance);
+		
+		document.getElementById("warn").innerHTML = "You got here the wrong way. Click the link to get to the right page";
+		var url = "http://52.11.246.123:3000";
+		var result = url.link("http://52.11.246.123:3000");
+		document.getElementById("showHomepage").innerHTML = result;
+		
+		document.getElementById("calc").style.display = "none";
+	}
+	else
+	{
+		console.log("Query is  a number - " +  travelDistance);
+
+	}
+	
+}
+
+calculateBtn.addEventListener('click', function(event){
+	
+	
+	
+	//console.log(travelDistance);
 });
 /*
 function works(input){

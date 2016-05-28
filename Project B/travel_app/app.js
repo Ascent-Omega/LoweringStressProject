@@ -68,7 +68,7 @@ app.get('/',function(req,res,next){
     //load the homepage
 	//var context = {};
     //res.render('index', context); 
-	res.sendFile(path.join(__dirname + '/views/public/app/index.html'));
+	res.sendFile(path.join(__dirname + '/views/public/index.html'));
 });
 /*
 app.get('/index',function(req,res,next){
@@ -84,8 +84,10 @@ app.post('/',function(req,res,next){
 });
 */
 app.get('/select', function(req, res, next) {
+	
   var context = {};
- 
+  context.sentData = req.query.miles;
+
   res.render('select', context);
   
   
