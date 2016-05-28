@@ -14,7 +14,7 @@ var selectHotel = document.getElementById("selectHotel");
 var selectVehicle = document.getElementById("selectVehicle");
 var selectNights = document.getElementById("selectNights");
 var selectGas = document.getElementById("selectGas");
-var calculateBtn = document.getElementById("calc");
+var calculateBtn = document.getElementById("calcAll");
 var travelDistance = document.getElementById("distanceO").value;
 var allowH = true;
 var allowN = true;
@@ -266,7 +266,7 @@ if(allowH){
 		
 		payload = response;
 		
-		console.log(response);
+		//console.log(response);
 		//alert(response.name[0]);
 		selectHOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
@@ -307,7 +307,7 @@ if(allowN){
 		
 		payload = response;
 		
-		console.log(response);
+		//console.log(response);
 		//alert(response.name[0]);
 		selectNOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
@@ -347,7 +347,7 @@ if(allowV){
 		
 		payload = response;
 				
-		console.log(response);
+		//console.log(response);
 		//alert(response.name[0]);
 		selectVOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
@@ -388,7 +388,7 @@ if(allowG){
 		
 		payload = response;
 		
-		console.log(response);
+		//console.log(response);
 		//alert(response.name[0]);
 		selectGOption(response);
 		//document.getElementById('status').innerHTML = req.responseText;
@@ -420,19 +420,52 @@ function testNumericalQuery(){
 		document.getElementById("showHomepage").innerHTML = result;
 		
 		document.getElementById("select-container").style.display = "none";
-		document.getElementById("calc").style.display = "none";
+		document.getElementById("calcAll").style.display = "none";
 	}
 	else
 	{
-		console.log("Query is  a number - " +  travelDistance);
+		//console.log("Query is  a number - " +  travelDistance);
 
 	}
 	
 }
 
+function doMath(){
+        
+        var gPrice = getValue(selectGas);
+        var miles = travelDistance;
+        var mpg = getValue(selectVehicle);
+
+		var gasCost = +(((miles/mpg) * gPrice).toFixed(2));
+		
+		var hotelPrice = getValue(selectHotel);
+		var totalNights = getValue(selectNights);
+
+		var stayPrice = +((hotelPrice * totalNights).toFixed(2));
+	
+		var totalPrice = +((gasCost + stayPrice).toFixed(2));
+		
+        document.getElementById("totalGasPrice").innerHTML = "Gas Price: $" + gasCost;
+		document.getElementById("stayPrice").innerHTML = "Hotel Price: $" + stayPrice;
+        document.getElementById("totalPrice").innerHTML = "Total: $" + totalPrice;
+
+
+    }
+    
+    function getValue(element){
+        
+		// need tests here for 0 values or null values
+        //if(element == )
+        
+        var val = Number(element.options[element.selectedIndex].value);
+        console.log(val);
+        
+        return val;
+    }
+
 calculateBtn.addEventListener('click', function(event){
 	
-	
+	doMath();
 	
 	//console.log(travelDistance);
 });
