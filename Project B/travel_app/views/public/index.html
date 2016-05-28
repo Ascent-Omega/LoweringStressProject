@@ -50,17 +50,11 @@
 		<form onsubmit="getData(); return false;" action="POST">
 			<label class="input-label" for="beginning_destination">Start: <input type="text" id="beginning_destination" name="beginning_destination" value=""></label>
 			<label class="input-label" for="ending_destination">End: <input type="text" id="ending_destination" name="ending_destination" value=""></label>
-			<input type="submit" value="Submit">
+			<button type="submit" class="btn btn-default">Submit</button>
+			<button id="costs" disabled type="button" class="btn btn-default" onclick="routePage(); return false;">Explore Costs</button>
 		</form>
       </div>
 
-      <div>
-        <form action="/select">
-            <input id="confirm" style="display: block" type="submit" value="Confirm">
-		</form>
-	  </div>
-
-    <div id="total"></div>
 
 	  <div id="map"></div>
     </div><!-- /.container -->
