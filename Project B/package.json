@@ -1,0 +1,21 @@
+{
+  "name": "travel_app",
+  "version": "1.0.0",
+  "description": "Hello world with express and node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OSU",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "bower": "^1.7.9",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-session": "*",
+    "mysql": "*",
+    "path": "^0.12.7",
+    "request": "^2.72.0"
+  }
+}

@@ -12,7 +12,7 @@
     <title>Lowering Stress in the World</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
 
 
@@ -53,7 +53,13 @@
 			<input type="submit" value="Submit">
 		</form>
       </div>
-      
+
+      <div>
+        <form action="/select">
+            <input id="confirm" style="display: block" type="submit" value="Confirm">
+		</form>
+	  </div>
+
     <div id="total"></div>
 
 	  <div id="map"></div>
@@ -64,9 +70,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
+	<script type="text/javascript" src="/js/form.js"></script>
+	<script type="text/javascript" src="/js/move.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0Iz2-uDQLCltYL5zcJYtUsLaSf24wuE" async defer></script>
     <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-    <script src="..//bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
