@@ -11,3 +11,13 @@ form label.input-label input {
 	 width: 50%;
 	 margin: auto;
 }
+
+#select-container {
+	width: 850px;
+	margin: auto;
+	padding: 40px;
+}
+
+#select-container select {
+	height: 20px;
+}
