@@ -36,6 +36,7 @@ function checkClick(event){
 	
 	//selectHotel.querySelectorAll("option[value=" + lowestValue + "]");
 	selectHotel.value = lowestValue;
+	document.getElementById('hotel-img').src = hotelUrlMap[lowestValue];	
 	
 	// choose cheapest nights(1)
 	totalOptions = selectNights.getElementsByTagName("option").length;
@@ -196,11 +197,13 @@ function selectHOption(input){
     var hotel = document.createElement("option");
     hotel.textContent = opt;
     hotel.value = input[i].room_price_per_night;
+	//hotel.name = input[i].name;
     selectHotel.appendChild(hotel);
-	
 	
 	}
 };
+
+
 
 function selectNOption(input){
 	
@@ -469,3 +472,16 @@ calculateBtn.addEventListener('click', function(event){
 	
 	//console.log(travelDistance);
 });
+
+var hotelUrlMap = {
+	"500" : "http://www3.hilton.com/resources/media/hi/BUEHIHH/en_US/img/shared/full_page_image_gallery/main/HH_exec1n_4_675x359_FitToBoxSmallDimension_Center.jpg",
+	"200" : "http://www.wyndhamworldwide.com/sites/default/files/media/Days-1.jpg",
+	"700" : "http://tampabay.grand.hyatt.com/content/dam/PropertyWebsites/grandhyatt/tparw/Media/All/Grand-Hyatt-Tampa-Bay-P126-Exterior-from-Road-1280x427.jpg",
+	"300" : "",
+	"100" : "",
+	"400" : "",
+	"70" : "http://www.laquintacolumbusedinburgh.com/content/dam/lq/US/IN/columbus/6445/suite/suite.lqimg.slide.jpg",
+	"900" : "",
+	"250" : "",
+	"80" : ""
+};

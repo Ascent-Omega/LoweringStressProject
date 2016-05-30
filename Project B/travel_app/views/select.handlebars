@@ -1,7 +1,7 @@
      
 	<div id="select-container">
 			<div>
-				<select id="selectHotel">
+				<select id="selectHotel" onchange="document.getElementById('hotel-img').src = hotelUrlMap[this.value];">
 					<option >Choose a Hotel</option>
 				</select>
 				<select id="selectNights">
@@ -39,6 +39,10 @@
 			<p id="stayPrice"> <p>
 			<p id="totalPrice"> <p>
 		</div>
+		
+		<div id="image-container">
+			<img src="http://tripoutlook.com/wp-content/uploads/2013/01/Hotel-Sis-Pins.jpg" id="hotel-img" height="40%" width="40%"> 
+		<div>
 	</div>
 	<script src="/js/selectScript.js"> </script>
 	
