@@ -12,8 +12,8 @@
     <title>Lowering Stress in the World</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/index.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
@@ -50,12 +50,27 @@
     <div class="container">
       <div class="starter-template">
         <h1>Where would you like to travel?</h1>
+		<div class="transport-type" id="trans-type">
+			<label class="transport-label" for="bus">Bus <input type="radio" name="transport" value="TRANSIT" id="BUS"/> 
+			<label class="transport-label" for="train">Train <input type="radio" name="transport" value="TRANSIT" id="TRAIN"/>
+			<label class="transport-label" for="driving">Driving <input type="radio" name="transport" value="DRIVING" id="driving" checked="checked"/>
+		</div>
+		<br>
+		<div class="route-preference" id="route-pref" hidden>
+			<label class="preference-label" for="fewer_transfers">Fewer Transfers <input type="radio" name="preference" value="FEWER_TRANSFERS" id="fewer_transfers" checked="checked"/> 
+			<label class="preference-label" for="less_walking">Less Walking <input type="radio" name="preference" value="LESS_WALKING" id="less_walking"/>
+		</div>
+		<br>
 		<form onsubmit="getData(); return false;" action="POST">
 			<label class="input-label" for="beginning_destination">Start: <input type="text" id="beginning_destination" name="beginning_destination" value=""></label>
 			<label class="input-label" for="ending_destination">End: <input type="text" id="ending_destination" name="ending_destination" value=""></label>
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" id="submit">
 		</form>
+		<div> 
+			<p id="no-results" style="visibility: hidden"> No Results found. Try another city. </p>
+		</div>
       </div>
+	  
 	  
       <div>
         <!-- /.container<form onSubmit="routePage();" method="GET">  -->			
@@ -63,11 +78,34 @@
 		<!--</form> -->
 
 	  </div>
-	  
+	  <div id="transit-fields" style="display:none">
+		  <div id="select-container" >
+				<div>
+					<select id="selectHotel">
+						<option >Choose a Hotel</option>
+					</select>
+					<select id="selectNights">
+						<option>Total Nights</option>
+					</select>
+				</div>			
+				<br>
+				<label for="cheapChk"> Select Cheapest:Hotel/Nights <label>
+				<input type="checkbox" id="cheapChk"/><br>
+			</div><!-- /.container -->
+			
+			<div>
+				<button id="calcAll"> Calculate </button>
+				<p id="transPrice"> <p>
+				<p id="stayPrice"> <p>
+				<p id="totalPrice"> <p>
+			</div>
+		</div>
+	</div>
     <div id="total"></div>
 
 	  <div id="map"></div>
     </div><!-- /.container -->
+	
 
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
@@ -75,11 +113,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  	<script type="text/javascript" src="/js/form.js"></script>
-  	<script type="text/javascript" src="/js/move.js"></script>
+  	<script type="text/javascript" src="js/form.js"></script>
   	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0Iz2-uDQLCltYL5zcJYtUsLaSf24wuE" async defer></script>
     <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     
     <!-- QUnit testing -->
    <script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
