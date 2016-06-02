@@ -1,3 +1,7 @@
+body {
+	position: relative;
+}
+
 .starter-template h1 {
 	margin-bottom: 30px;
 }
@@ -20,4 +24,52 @@ form label.input-label input {
 
 #select-container select {
 	height: 20px;
+}
+
+#total {
+	text-align: center;
+	font-size: 16pt;
+	margin-bottom: 10px;
+}
+
+#cost-container {
+	width: 900px;
+	margin: auto;
+	overflow: auto;
+	width: 80%
+}
+
+#select-container {
+	float:left;
+	width:50%;
+
+	padding: 40px 50px 40px 120px;
+}
+
+
+#image-container {
+	float:left;
+	width: 50%;
+
+}
+
+#calcAll {
+	display: block;
+}
+
+.cost-shower {
+	font-weight: bold;
+	padding: 10px 10px 10px 0px;
+}
+
+a#returnHome {
+	position:absolute;
+	top: 10px;
+	left: 15px;
+	font-size: 16pt;
+}
+
+#transit-fields {
+	margin: auto;
+	width: 300px;
 }

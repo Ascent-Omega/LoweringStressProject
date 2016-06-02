@@ -1,4 +1,4 @@
-     
+
 	<div id="select-container">
 			<div>
 				<select id="selectHotel" onchange="document.getElementById('hotel-img').src = hotelUrlMap[this.value];">
@@ -22,31 +22,30 @@
 			</div>
 			<br>
 			<div>
-			<label for="distance"> Miles to travel</label>
-			<select id="distance">
+				<label for="distance"> Miles to travel</label>
+				<select id="distance">
 					<option id="distanceO">{{sentData}}</option>
-			</select>
+				</select>
 			</div>
-			<label for="cheapChk"> Select Cheapest:Hotel/Nights/Gas <label>
-			<input type="checkbox" id="cheapChk"/><br>
+			<br>
+			<label for="cheapChk"> Select Cheapest:Hotel/Nights/Gas </label>
+			<input type="checkbox" id="cheapChk"/>
+			<div>
+				<p id="warn"> </p>
+				<p id="showHomepage"> </p>
+				<button class="btn btn-default" id="calcAll"> Calculate </button>
+				<p class="cost-shower" id="totalGasPrice"> </p>
+				<p class="cost-shower" id="stayPrice"> </p>
+				<p class="cost-shower" id="totalPrice"> </p>
+			</div>
+
 	    </div><!-- /.container -->
-		
-		<div>
-			<p id="warn"> <p>
-			<p id="showHomepage"> <p>
-			<button id="calcAll"> Calculate </button>
-			<p id="totalGasPrice"> <p>
-			<p id="stayPrice"> <p>
-			<p id="totalPrice"> <p>
-		</div>
-		
+
+
+
+
 		<div id="image-container">
-			<img src="http://tripoutlook.com/wp-content/uploads/2013/01/Hotel-Sis-Pins.jpg" id="hotel-img" height="40%" width="40%"> 
+			<img src="http://tripoutlook.com/wp-content/uploads/2013/01/Hotel-Sis-Pins.jpg" id="hotel-img" height="80%" width="80%">
 		<div>
 	</div>
 	<script src="/js/selectScript.js"> </script>
-	
-	
-
-	
-	

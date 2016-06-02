@@ -18,7 +18,7 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
-    
+
     <!-- QUnit style for testing -->
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.23.1.css">
 
@@ -51,35 +51,34 @@
       <div class="starter-template">
         <h1>Where would you like to travel?</h1>
 		<div class="transport-type" id="trans-type">
-			<label class="transport-label" for="bus">Bus <input type="radio" name="transport" value="TRANSIT" id="BUS"/> 
+			<label class="transport-label" for="bus">Bus <input type="radio" name="transport" value="TRANSIT" id="BUS"/>
 			<label class="transport-label" for="train">Train <input type="radio" name="transport" value="TRANSIT" id="TRAIN"/>
 			<label class="transport-label" for="driving">Driving <input type="radio" name="transport" value="DRIVING" id="driving" checked="checked"/>
 		</div>
 		<br>
 		<div class="route-preference" id="route-pref" hidden>
-			<label class="preference-label" for="fewer_transfers">Fewer Transfers <input type="radio" name="preference" value="FEWER_TRANSFERS" id="fewer_transfers" checked="checked"/> 
+			<label class="preference-label" for="fewer_transfers">Fewer Transfers <input type="radio" name="preference" value="FEWER_TRANSFERS" id="fewer_transfers" checked="checked"/>
 			<label class="preference-label" for="less_walking">Less Walking <input type="radio" name="preference" value="LESS_WALKING" id="less_walking"/>
 		</div>
 		<br>
 		<form onsubmit="getData(); return false;" action="POST">
 			<label class="input-label" for="beginning_destination">Start: <input type="text" id="beginning_destination" name="beginning_destination" value=""></label>
 			<label class="input-label" for="ending_destination">End: <input type="text" id="ending_destination" name="ending_destination" value=""></label>
-			<input type="submit" value="Submit" id="submit">
+			<button class="btn btn-default" type="submit" value="Submit" id="submit">Submit</button>
+			<button class="btn btn-default" id="confirm" style="display: none"  onclick="routePage()" value="Confirm">Calculate Cost</button>
 		</form>
-		<div> 
+		<div>
 			<p id="no-results" style="visibility: hidden"> No Results found. Try another city. </p>
 		</div>
       </div>
-	  
-	  
+
+
       <div>
-        <!-- /.container<form onSubmit="routePage();" method="GET">  -->			
-            <button id="confirm" style="display: none"  onclick="routePage()" value="Confirm">Confirm </button>
-		<!--</form> -->
 
 	  </div>
-	  <div id="transit-fields" style="display:none">
-		  <div id="select-container" >
+
+	  <div id="transit-fields"  style="display:none"> 
+		  <div id="alternative-routes">
 				<div>
 					<select id="selectHotel">
 						<option >Choose a Hotel</option>
@@ -87,25 +86,25 @@
 					<select id="selectNights">
 						<option>Total Nights</option>
 					</select>
-				</div>			
+				</div>
 				<br>
-				<label for="cheapChk"> Select Cheapest:Hotel/Nights <label>
-				<input type="checkbox" id="cheapChk"/><br>
+				<label for="cheapChk"> Select Cheapest Option:
+					<input type="checkbox" id="cheapChk"/>
+				</label>
+				<br><br>
+				<div>
+					<button id="calcAll"> Calculate Costs</button>
+					<p id="transPrice"> <p>
+					<p id="stayPrice"> <p>
+					<p id="totalPrice"> <p>
+				</div>
 			</div><!-- /.container -->
-			
-			<div>
-				<button id="calcAll"> Calculate </button>
-				<p id="transPrice"> <p>
-				<p id="stayPrice"> <p>
-				<p id="totalPrice"> <p>
-			</div>
 		</div>
 	</div>
     <div id="total"></div>
-
 	  <div id="map"></div>
     </div><!-- /.container -->
-	
+
 
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
@@ -117,10 +116,10 @@
   	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0Iz2-uDQLCltYL5zcJYtUsLaSf24wuE" async defer></script>
     <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
     <!-- QUnit testing -->
    <script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
    <script src="js/tests.js"></script>
-    
+
   </body>
 </html>
